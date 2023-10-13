@@ -6,7 +6,6 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
-import java.util.List;
 
 @Getter
 @Setter
@@ -15,14 +14,15 @@ import java.util.List;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-public class Role implements Serializable {
+public class ParametreStrategie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int role_Id;
-    @Enumerated(EnumType.STRING)
-    typeRole roleType;
-    @OneToMany(mappedBy = "role")
+    int Parametre_id;
+    String nomParametre;
+    String valeurParametre;
+    String descriptionParametre;
+    @ManyToOne
     @JsonIgnore
-    List<Utilisateur> utilisateurList;
+    Strategie strategie;
 
 }

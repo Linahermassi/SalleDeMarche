@@ -10,5 +10,5 @@ public interface IOrdreService {
     List<Ordre> selectAllOrdre();
     Ordre SelectOrdreById(int ordreId);
     void deleteOrdreById(int OrdreId);
-    void deleteAllContracts();
+    void deleteAllOrdres();
 }

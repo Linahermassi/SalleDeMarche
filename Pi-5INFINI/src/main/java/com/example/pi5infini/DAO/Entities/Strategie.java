@@ -6,6 +6,7 @@ import lombok.experimental.FieldDefaults;
 
 import javax.persistence.*;
 import java.io.Serializable;
+import java.util.Date;
 import java.util.List;
 
 @Getter
@@ -15,14 +16,21 @@ import java.util.List;
 @Builder
 @FieldDefaults(level = AccessLevel.PRIVATE)
 @Entity
-public class Instrument implements Serializable {
+public class Strategie implements Serializable {
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
-    int instrument_id ;
-    String instrumentNom;
-    String symbole;
+    int stratégie_id;
     String description;
-    @ManyToMany
+    float Performance;
+    String risque;
+    Date datecreation;
+    @ManyToMany(mappedBy = "strategieList")
     @JsonIgnore
-    List<Strategie> strategieList;
+    List<Instrument> instrumentList;
+    @OneToMany(mappedBy = "strategie")
+    @JsonIgnore
+    List<IndicateurTechnique> indicateursTechniques;
+    @OneToMany(mappedBy = "strategie")
+    @JsonIgnore
+    List<ParametreStrategie> parametreStrategies;
 }
