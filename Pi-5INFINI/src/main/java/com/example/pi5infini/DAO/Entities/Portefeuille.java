@@ -22,7 +22,7 @@ public class Portefeuille implements Serializable {
     float solde;
     @OneToOne
     @JsonIgnore
-    Utilisateur utilisateur;
+    User utilisateur;
     @OneToMany(mappedBy = "portefeuille")
     @JsonIgnore
     List<Transaction>transactionList;

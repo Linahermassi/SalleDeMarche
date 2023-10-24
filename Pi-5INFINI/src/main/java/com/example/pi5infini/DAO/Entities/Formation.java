@@ -24,6 +24,6 @@ public class Formation implements Serializable {
     String descriptionFormation;
     @OneToMany(mappedBy = "formation")
     @JsonIgnore
-    List<Utilisateur> utilisateurList;
+    List<User> utilisateurList;
 
 }
